@@ -2,7 +2,7 @@ package icebot;
 import java.util.Scanner;
 import java.io.*;
 public class FileReader {
-
+ 
 	
 	
 	static String getDeck(String deckName){
