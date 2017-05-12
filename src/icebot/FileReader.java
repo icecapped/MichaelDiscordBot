@@ -13,7 +13,7 @@ public class FileReader {
 			while(sc.hasNextLine()){
 				String s = sc.nextLine();
 				if(s.contains(deckName)){
-					return s.substring(deckName.length() + 2);
+					return s.substring(deckName.length() + 1);
 				}
 			}
 		}
