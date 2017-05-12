@@ -6,7 +6,7 @@ public class FileReader {
 	 
 	
 	static String getDeck(String deckName){
-		File f = new File("decks.txt");
+		File f = new File("/Users/Icecap/icebot/MichaelDiscordBot/decks.txt");
 		
 		try {
 			Scanner sc = new Scanner(f);

@@ -18,7 +18,5 @@ public class Bot {
 		catch(LoginException | IllegalArgumentException | RateLimitedException e){
 			e.printStackTrace();
 		}
-		
-		
 	}
 }
