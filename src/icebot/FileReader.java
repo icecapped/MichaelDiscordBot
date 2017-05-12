@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.*;
 public class FileReader {
  
-	
+	 
 	
 	static String getDeck(String deckName){
 		File f = new File("decks.txt");
