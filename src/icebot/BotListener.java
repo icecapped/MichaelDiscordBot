@@ -51,7 +51,10 @@ public class BotListener extends ListenerAdapter{
 			command.getdeck(e, args);
 			break;
 		
-		//add deck and remove deck
+		case "adddeck":
+			command.adddeck(e, args);
+			break;
+			
 		}
 	}
 	
