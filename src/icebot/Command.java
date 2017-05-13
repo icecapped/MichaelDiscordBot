@@ -6,7 +6,16 @@ public class Command {
 	
 	void help(MessageReceivedEvent e){
 		//TODO: PUT HELP INTO A TEXT FILE
-		e.getChannel().sendMessage("Michael's Discord Bot\n\nCommands:\n-help - Display help\n-ping - Ping the bot\n-pingcount - Check number of pings in the current session\n-deck [HERO] [AUTHOR]").complete();
+		e.getChannel().sendMessage("Michael's Discord Bot\n\n"
+				+ "Bot Commands:\n"
+				+ "-help - Displays help\n"
+				+ "-ping - Ping the bot\n"
+				+ "-pingcount - Check number of pings in the current session\n"
+				+ "\n"
+				+ "Paragon Bot Commands:"
+				+ "-deck [HERO] [AUTHOR] - Searches for a deck.\n"
+				+ "-adddeck [HERO] [AUTHOR] [URL] - Adds a deck to the decklist."
+				).complete();
 	}
 	
 	void ping(MessageReceivedEvent e){
@@ -30,10 +39,18 @@ public class Command {
 		String deck = "";
 		deck += deckName + ":" + args[2];
 		
-		DeckWriter.addDeck(deck);
-		System.out.println("[Deck] Deck Added.");
+		String s = DeckWriter.addDeck(deck);
+		System.out.println("[Deck] Deck Proccessed.");
 		
-		e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.");
+		if(s.equals("VLD")){
+			e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.").complete();
+		}
+		else if(s.equals("FNF")){
+			e.getChannel().sendMessage("Decklist not found.").complete();
+		}
+		else if(s.equals("IOE")){
+			e.getChannel().sendMessage("IO Exception! Contact Michael/Harry.").complete();
+		}
 		System.out.println("[Deck] Message sent.");
 		//TODO: write to file
 	}

@@ -4,7 +4,7 @@ import java.io.*;
 
 public class DeckWriter {
 
-	static void addDeck(String deck){
+	static String addDeck(String deck){
 		File f = new File("/Users/Icecap/icebot/MichaelDiscordBot/decks.txt");
 		
 		try {
@@ -14,10 +14,14 @@ public class DeckWriter {
 			bf.write("\n" + deck);
 			bf.flush();
 			bf.close();
+			System.out.println("[Write] Decklist updated.");
+			return "VLD"; // valid
 		} catch(FileNotFoundException e){
 			System.out.println("[Write] Decklist not found!");
+			return "FNF";
 		} catch (IOException e) {
 			System.out.println("[Write] IOException!");
+			return "IOE";
 		}
 	}
 }
