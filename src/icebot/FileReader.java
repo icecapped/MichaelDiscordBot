@@ -13,9 +13,11 @@ public class FileReader {
 			while(sc.hasNextLine()){
 				String s = sc.nextLine();
 				if(s.contains(deckName)){
+					sc.close();
 					return s.substring(deckName.length() + 1);
 				}
 			}
+			sc.close();
 		}
 		catch(FileNotFoundException e){
 			System.out.println("[FileReader] Deck text file not found.");

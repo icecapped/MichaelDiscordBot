@@ -27,9 +27,14 @@ public class Command {
 		args[0].toLowerCase();
 		
 		System.out.print("[Deck] Add Deck method initialized.");
-		String out = "";
-		out += deckName + ":" + args[2];
+		String deck = "";
+		deck += deckName + ":" + args[2];
 		
+		DeckWriter.addDeck(deck);
+		System.out.println("[Deck] Deck Added.");
+		
+		e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.");
+		System.out.println("[Deck] Message sent.");
 		//TODO: write to file
 	}
 	
