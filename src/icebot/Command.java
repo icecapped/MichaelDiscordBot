@@ -5,16 +5,15 @@ import net.dv8tion.jda.core.events.message.*;
 public class Command {
 	
 	void help(MessageReceivedEvent e){
-		//TODO: PUT HELP INTO A TEXT FILE
 		e.getChannel().sendMessage("Michael's Discord Bot\n\n"
 				+ "Bot Commands:\n"
 				+ "-help - Displays help\n"
 				+ "-ping - Ping the bot\n"
 				+ "-pingcount - Check number of pings in the current session\n"
 				+ "\n"
-				+ "Paragon Bot Commands:"
-				+ "-deck [HERO] [AUTHOR] - Searches for a deck.\n"
-				+ "-adddeck [HERO] [AUTHOR] [URL] - Adds a deck to the decklist."
+				+ "Paragon Bot Commands:\n"
+				+ "-deck [HERO] [AUTHOR] [optional DECK NAME]- Searches for a deck.\n"
+				+ "-adddeck [HERO] [AUTHOR] [URL] [optional DECK NAME]- Adds a deck to the decklist."
 				).complete();
 	}
 	
@@ -32,7 +31,9 @@ public class Command {
 	
 	void adddeck(MessageReceivedEvent e, String[] args){
 		String deckName = args[0] + args[1];
-		deckName.toLowerCase();
+		if(args.length == 4) deckName += args[3];
+		System.out.println("[Deck] " + args.length + " arguments.");
+		deckName = deckName.toLowerCase();
 		args[0].toLowerCase();
 		
 		System.out.print("[Deck] Add Deck method initialized.");
@@ -43,7 +44,8 @@ public class Command {
 		System.out.println("[Deck] Deck Proccessed.");
 		
 		if(s.equals("VLD")){
-			e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.").complete();
+			if(args.length != 4) e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.").complete();
+			else e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck added.").complete();
 		}
 		else if(s.equals("FNF")){
 			e.getChannel().sendMessage("Decklist not found.").complete();
@@ -52,11 +54,13 @@ public class Command {
 			e.getChannel().sendMessage("IO Exception! Contact Michael/Harry.").complete();
 		}
 		System.out.println("[Deck] Message sent.");
-		//TODO: write to file
+		
 	}
 	
 	void getdeck(MessageReceivedEvent e, String[] args){
 		String deckName = args[0] + args[1];
+		if(args.length == 3) deckName = deckName + args[2];
+		System.out.println("[Deck] " + args.length + " arguments.");
 		args[0].toLowerCase();
 		deckName = deckName.toLowerCase();
 		
@@ -76,42 +80,14 @@ public class Command {
 			e.getChannel().sendMessage("Deck list not found.").complete();
 			return;
 		}
-		
-		/*
-		switch(deckName){
-		default: e.getChannel().sendMessage("Deck not found or improper syntax.\nCommand usage: -deck [HERO] [AUTHOR]").complete();
-		System.out.println("[Deck] Deck not found/improper syntax");
-		return;
-		//TODO: PUT DECKS INTO A TXT FILE
-		case "gideonzharry":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/zharry/74545183-b421-4359-a616-f11426ebf086";
-			break;
-			
-		case "gideonicecappuccino":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/937dd0de-5bf6-4a87-b001-4b2cf8f0bb06";
-			break;
-		
-		case "revenanticecappuccino":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/4cc2653f-40c3-4713-bb84-88219924ffc7";
-			break;
-			
-		case "sevarogicecappuccino":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/0c2be498-a267-4c07-983e-bbe515ff933f";
-			break;
-			
-		case "riktorepy22135":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Epy22135/99659ab2-6b1d-4160-ad48-66580e215a05";
-			break;
-			
-		case "yinepy22135":
-			out = "https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Epy22135/b858bd20-8b65-4585-b68a-a3c65a2e3821";
-			break;
-			
-		}
-		
-		*/
 		System.out.println("[Deck] Deck found.");
-		e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck:\n" + out).complete();
+		
+		if(args.length != 3){
+			e.getChannel().sendMessage(args[1] + "'s " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck:\n" + out).complete();
+		}
+		else{ //TODO: test this
+			e.getChannel().sendMessage(args[1] + "'s " + args[2] + " " + args[0].substring(0, 1).toUpperCase() + args[0].substring(1) + " deck:\n" + out).complete();
+		}
 		System.out.println("[Deck] Deck sent.");
 	}
 }

@@ -5,7 +5,6 @@ import javax.security.auth.login.*;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import net.dv8tion.jda.core.managers.Presence;
 
 public class Bot {
 

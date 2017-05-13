@@ -8,6 +8,8 @@ public class FileReader {
 	static String getDeck(String deckName){
 		File f = new File("/Users/Icecap/icebot/MichaelDiscordBot/decks.txt");
 		
+		//TODO: check if the deckname is exact
+		
 		try {
 			Scanner sc = new Scanner(f);
 			while(sc.hasNextLine()){
