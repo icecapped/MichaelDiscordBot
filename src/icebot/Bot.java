@@ -11,12 +11,11 @@ public class Bot {
 	public static JDA jda;
 	
 	public static final String BOT_TOKEN = "MzEyNDA2MTYyMzQ5ODgzMzkz.C_amxQ.RslY0c9MfaDHspPC1nfY-CvJkNo";
-	public static final String GAME = "Paragon";
+	public static final String GAME = "Paragon | -help";
 	
 	public static void main(String[] args){
 		System.out.println("Welcome!"); //harry added this
 		
-		System.out.println("[JDA] Game updated.");
 		try{ //initialization
 		jda = new JDABuilder(AccountType.BOT).addEventListener(new BotListener()).setToken(BOT_TOKEN).buildAsync();
 		}
@@ -24,5 +23,6 @@ public class Bot {
 			e.printStackTrace();
 		}
 		jda.getPresence().setGame(Game.of(GAME));
+		System.out.println("[JDA] Game updated.");
 	}
 }

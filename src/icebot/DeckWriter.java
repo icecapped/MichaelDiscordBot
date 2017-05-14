@@ -24,4 +24,9 @@ public class DeckWriter {
 			return "IOE";
 		}
 	}
+	
+	static String replaceDeck(){
+		//TODO: finish this
+		return "";
+	}
 }

@@ -4,8 +4,4 @@ revenanticecappuccino:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/
 yinepy22135:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Epy22135/b858bd20-8b65-4585-b68a-a3c65a2e3821
 dekkerepy22135:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Epy22135/a2aa71c6-9cdd-42a8-8990-a8645d3a7050
 fengmaoicecappuccino:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/3272e0f4-f7f0-4406-ab5e-4b437719118a
-fengmaoIcecappuccinoBruiser:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/3272e0f4-f7f0-4406-ab5e-4b437719118a
-testheroicecap:website
-testheroicecapbruiser:website
-RevenantIcecappower:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/4f398b28-aede-4ae6-8ce3-1e3622de84e6
 revenanticecappower:https://www.epicgames.com/paragon/deckbuilder/en-US/decks/Icecappuccino/4f398b28-aede-4ae6-8ce3-1e3622de84e6
