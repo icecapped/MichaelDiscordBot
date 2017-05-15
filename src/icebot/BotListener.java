@@ -21,7 +21,7 @@ public class BotListener extends ListenerAdapter{
 		
 		String[] args = new String[11];
 		String cmd;
-
+		
 		if(in.contains(" ")){
 			cmd = in.substring(0, in.indexOf(" "));
 			in = in.substring(in.indexOf(" ") + 1);
@@ -30,7 +30,7 @@ public class BotListener extends ListenerAdapter{
 		else{
 			cmd = in;
 		}
-		
+		cmd = cmd.toLowerCase();
 		switch(cmd){
 		default: e.getChannel().sendMessage("Invalid Command \"" + cmd + "\".").complete();
 		System.out.println("[Command] Invalid Command: \"" + cmd + "\".");
@@ -51,10 +51,12 @@ public class BotListener extends ListenerAdapter{
 			command.getdeck(e, args);
 			break;
 		
-		case "adddeck":
+		case "add":
 			command.adddeck(e, args);
 			break;
-			
+		case "remove":
+			command.removeDeck(e, args);
+			break;
 		}
 	}
 	
