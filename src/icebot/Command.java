@@ -36,7 +36,7 @@ public class Command {
 	void adddeck(MessageReceivedEvent e, String[] args){
 		if(args.length < 3 || args.length > 4){ // invalid amount of arguments
 			System.out.println("[Deck] Improper syntax.");
-			e.getChannel().sendMessage("Improper syntax?\nCommand usage: -adddeck [HERO] [AUTHOR] [URL] [optional DECK NAME]").complete();
+			e.getChannel().sendMessage("Improper syntax?\nCommand usage: -add [HERO] [AUTHOR] [URL] [optional DECK NAME]").complete();
 			return;
 		}
 		
@@ -112,7 +112,7 @@ public class Command {
 	void removeDeck(MessageReceivedEvent e, String args[]){
 		if(args.length < 2 || args.length > 3){ // invalid amount of arguments
 			System.out.println("[Deck] Improper syntax.");
-			e.getChannel().sendMessage("Improper syntax?\nCommand usage: -deck [HERO] [AUTHOR] [optional DECK NAME]");
+			e.getChannel().sendMessage("Improper syntax?\nCommand usage: -remove [HERO] [AUTHOR] [optional DECK NAME]");
 			return;
 		}
 		
