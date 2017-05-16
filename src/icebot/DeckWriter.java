@@ -12,7 +12,8 @@ public class DeckWriter {
 			FileWriter fw = new FileWriter(f, true);
 			BufferedWriter bf = new BufferedWriter(fw);
 			System.out.println("[Write] Decklist opened.");
-			bf.write("\n" + deck);
+			bf.write(deck + "\n");
+			
 			bf.flush();
 			bf.close();
 			System.out.println("[Write] Decklist updated.");
