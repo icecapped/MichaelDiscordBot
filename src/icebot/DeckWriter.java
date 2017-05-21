@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DeckWriter {
 
 	static String addDeck(String deck){
-		File f = new File("/Users/Icecap/icebot/MichaelDiscordBot/decks.txt");
+		File f = new File("decks.txt");
 		
 		try {
 			FileWriter fw = new FileWriter(f, true);
@@ -28,7 +28,7 @@ public class DeckWriter {
 	}
 	
 	static String removeDeck(String deck){
-		File f = new File("/Users/Icecap/icebot/MichaelDiscordBot/decks.txt");
+		File f = new File("decks.txt");
 		
 		try {
 			//find deck place, and replace with nothing
