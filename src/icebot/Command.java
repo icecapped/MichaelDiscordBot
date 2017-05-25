@@ -6,7 +6,7 @@ public class Command {
 	
 	void help(MessageReceivedEvent e){
 		e.getChannel().sendMessage(
-				  "Michael's Discord Bot - testv1"
+				  "Michael's Discord Bot - test2"
 				+ "\n"
 				+ "\n"
 				+ "Bot Commands:\n"
