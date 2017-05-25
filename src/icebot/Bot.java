@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 
 public class Bot {
-
+	//"PROOF"
 	public static JDA jda;
 	
 	public static String BOT_TOKEN = "";
