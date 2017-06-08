@@ -6,7 +6,7 @@ public class Command {
 	
 	void help(MessageReceivedEvent e){
 		e.getChannel().sendMessage(
-				  "Michael's Discord Bot - test2"
+				  "Michael's Discord Bot"
 				+ "\n"
 				+ "\n"
 				+ "Bot Commands:\n"
@@ -142,5 +142,31 @@ public class Command {
 			e.getChannel().sendMessage("IO Exception! Contact Michael/Harry.").complete();
 			return;
 		}
+	}
+	
+	void queue(MessageReceivedEvent e, QueueContainer queue){
+		//queue command, checkqueue, drop from queue command, call on queue command, queue flush command
+		System.out.println("[Queue] Queue Method initialized.");
+		
+		for(int i = 0; i < 5; i++){
+			if(queue.id[i] == null){
+				queue.id[i] = e.getAuthor().toString(); //[TODO] check if user is already in queue
+				/*
+				 * TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
+				 */
+				queue.user[i] = e.getAuthor();
+				System.out.println("[Queue] " + "\"" + e.getAuthor().toString() + "\" added to the queue.");
+				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.");
+			}
+		}
+		if(queue.user[4] != null){
+			System.out.println("[Queue] Queue full, calling players");
+			// [TODO] references to a call on command
+			/*
+			 * 	TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
+			 */
+			return;
+		}
+		//call on players of the queue if queue becomes full
 	}
 }

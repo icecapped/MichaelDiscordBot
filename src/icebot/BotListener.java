@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.hooks.*;
 public class BotListener extends ListenerAdapter{
 	
 	private int pingcount = 0;
+	QueueContainer queue = new QueueContainer(); // defaults to 5
 	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent e){
@@ -57,6 +58,7 @@ public class BotListener extends ListenerAdapter{
 		case "remove":
 			command.removeDeck(e, args);
 			break;
+			//[TODO] add the commands for the queue
 		}
 	}
 	
