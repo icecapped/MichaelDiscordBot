@@ -173,6 +173,7 @@ public class Command {
 				queue.user[i] = e.getAuthor();
 				System.out.println("[Queue] " + "\"" + e.getAuthor().toString() + "\" added to the queue.");
 				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.").complete();
+				break;
 			}
 		}
 		if(queue.user[4] != null){
