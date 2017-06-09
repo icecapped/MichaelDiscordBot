@@ -58,7 +58,9 @@ public class BotListener extends ListenerAdapter{
 		case "remove":
 			command.removeDeck(e, args);
 			break;
-			//[TODO] add the commands for the queue
+		case "q":
+		case "queue":
+			command.queue(e, queue);
 		}
 	}
 	

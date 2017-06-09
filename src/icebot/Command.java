@@ -4,6 +4,17 @@ import net.dv8tion.jda.core.events.message.*;
 
 public class Command {
 	
+	/*
+	 * TABLE OF CONTENTS;
+	 * 1: Misellaneous Commands
+	 * 2: Deck System
+	 * 3: Queue System
+	 */
+	
+	
+	/*
+	 * MISC. COMMANDS
+	 */
 	void help(MessageReceivedEvent e){
 		e.getChannel().sendMessage(
 				  "Michael's Discord Bot"
@@ -32,6 +43,10 @@ public class Command {
 		e.getChannel().sendMessage("Pings: " + pingcount).complete();
 		System.out.println("[Ping] Message Sent.");
 	}
+	
+	/*
+	 * DECK SYSTEM COMMANDS
+	 */
 	
 	void adddeck(MessageReceivedEvent e, String[] args){
 		if(args.length < 3 || args.length > 4){ // invalid amount of arguments
@@ -144,6 +159,10 @@ public class Command {
 		}
 	}
 	
+	/*
+	 * QUEUE SYSTEM COMMANDS
+	 */
+	
 	void queue(MessageReceivedEvent e, QueueContainer queue){
 		//queue command, checkqueue, drop from queue command, call on queue command, queue flush command
 		System.out.println("[Queue] Queue Method initialized.");
@@ -151,22 +170,31 @@ public class Command {
 		for(int i = 0; i < 5; i++){
 			if(queue.id[i] == null){
 				queue.id[i] = e.getAuthor().toString(); //[TODO] check if user is already in queue
-				/*
-				 * TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
-				 */
 				queue.user[i] = e.getAuthor();
 				System.out.println("[Queue] " + "\"" + e.getAuthor().toString() + "\" added to the queue.");
-				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.");
+				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.").complete();
 			}
 		}
 		if(queue.user[4] != null){
-			System.out.println("[Queue] Queue full, calling players");
-			// [TODO] references to a call on command
-			/*
-			 * 	TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
-			 */
+			System.out.println("[Queue] Queue full, calling players.");
+			callPlayers(e, queue);
 			return;
 		}
 		//call on players of the queue if queue becomes full
+	}
+	
+	void callPlayers(MessageReceivedEvent e, QueueContainer queue){
+		System.out.println("[Queue] Calling players.");
+		
+		String out = "Team found:";
+		for(int i = 0; i < 5; i++){
+			if(queue.id[i] == null){
+				break;
+			}
+			out += "\n" + queue.user[i].getAsMention();
+		}
+		queue.resetContainer();
+		
+		e.getChannel().sendMessage(out).complete();
 	}
 }

@@ -1,7 +1,6 @@
 package icebot;
 
 import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.*;
 
 public class QueueContainer {
 
@@ -17,4 +16,13 @@ public class QueueContainer {
 		user = new User[i];
 	}
 	
+	void resetContainer(){
+		id = new String[5];
+		user = new User[5];
+	}
+
+	void resetContainer(int n){
+		id = new String[n];
+		user = new User[n];
+	}
 }
