@@ -26,9 +26,12 @@ public class Command {
 				+ "-pingcount - Check number of pings in the current session\n"
 				+ "\n"
 				+ "Paragon Bot Commands:\n"
-				+ "-deck [HERO] [AUTHOR] [optional DECK NAME]- Searches for a deck.\n"
-				+ "-add [HERO] [AUTHOR] [URL] [optional DECK NAME]- Adds a deck to the deck list.\n"
-				+ "-remove [HERO] [AUTHOR] [optional DECK NAME]- Removes a deck from the deck list."
+				+ "-deck [HERO] [AUTHOR] [optional DECK NAME] - Searches for a deck.\n"
+				+ "-add [HERO] [AUTHOR] [URL] [optional DECK NAME] - Adds a deck to the deck list.\n"
+				+ "-remove [HERO] [AUTHOR] [optional DECK NAME] - Removes a deck from the deck list.\n"
+				+ "-join / -j - Join the current party queue."
+				+ "-party - Mention all the people in the current party queue for a party."
+				+ "-queue - List of people in the queue."
 				).complete();
 	}
 	
@@ -164,7 +167,7 @@ public class Command {
 	 */
 	
 	void queue(MessageReceivedEvent e, QueueContainer queue){
-		//queue command, checkqueue, drop from queue command, call on queue command, queue flush command
+		//Xqueue command, checkqueue, drop from queue command, Xcall on queue command, Xqueue flush command
 		System.out.println("[Queue] Queue Method initialized.");
 		
 		for(int i = 0; i < 5; i++){
@@ -187,7 +190,7 @@ public class Command {
 	void callPlayers(MessageReceivedEvent e, QueueContainer queue){
 		System.out.println("[Queue] Calling players.");
 		
-		String out = "Team found:";
+		String out = "TEAM MADE:";
 		for(int i = 0; i < 5; i++){
 			if(queue.id[i] == null){
 				break;
@@ -197,5 +200,18 @@ public class Command {
 		queue.resetContainer();
 		
 		e.getChannel().sendMessage(out).complete();
+	}
+	
+	void listQueue(MessageReceivedEvent e, QueueContainer queue){
+		System.out.println("[Queue] Listing players in the current queue.");
+		
+		String out = e.getAuthor().getAsMention() + " Players currently in queue:";
+		
+		for(int i = 0; i < 5; i++){
+			if(queue.id[i] == null){
+				break;
+			}
+			out += "\n" + queue.id[i];
+		}
 	}
 }

@@ -58,9 +58,16 @@ public class BotListener extends ListenerAdapter{
 		case "remove":
 			command.removeDeck(e, args);
 			break;
-		case "q":
-		case "queue":
+		case "j":
+		case "join":
 			command.queue(e, queue);
+			break;
+		case "party":
+			command.callPlayers(e, queue);
+			break;
+		case "queue":
+			command.listQueue(e, queue);
+			break;
 		}
 	}
 	
