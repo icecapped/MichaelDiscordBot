@@ -18,8 +18,7 @@ public class Command {
 	void help(MessageReceivedEvent e){
 		e.getChannel().sendMessage(
 				  "Michael's Discord Bot"
-				+ "\n"
-				+ "\n"
+				+ "\n```"
 				+ "Bot Commands:\n"
 				+ "-help - Displays help\n"
 				+ "-ping - Ping the bot\n"
@@ -33,6 +32,7 @@ public class Command {
 				+ "-leave - Leaves the current party queue.\n"
 				+ "-party - Mention all the people in the current party queue for a party.\n"
 				+ "-queue - List of people in the queue."
+				+ "```"
 				).complete();
 	}
 	
