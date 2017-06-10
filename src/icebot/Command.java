@@ -206,7 +206,7 @@ public class Command {
 	void listQueue(MessageReceivedEvent e, QueueContainer queue){
 		System.out.println("[Queue] Listing players in the current queue.");
 		
-		String out = "Players currently in queue:";
+		String out = "Players currently in queue: ```";
 		
 		for(int i = 0; i < 5; i++){
 			if(queue.id[i] == null){
@@ -218,6 +218,7 @@ public class Command {
 			}
 			out += "\n" + queue.id[i];
 		}
+		out += "```";
 		e.getChannel().sendMessage(out).complete();
 	}
 	
