@@ -209,9 +209,14 @@ public class Command {
 		
 		for(int i = 0; i < 5; i++){
 			if(queue.id[i] == null){
+				if(queue.id[0] == null){
+					e.getChannel().sendMessage("No one is in queue.").complete();
+					return;
+				}
 				break;
 			}
 			out += "\n" + queue.id[i];
 		}
+		e.getChannel().sendMessage(out).complete();
 	}
 }
