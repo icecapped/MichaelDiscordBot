@@ -178,7 +178,8 @@ public class Command {
 				queue.id[i] = e.getMember().getEffectiveName(); //[TODO] check if user is already in queue
 				queue.user[i] = e.getAuthor();
 				System.out.println("[Queue] " + "\"" + e.getAuthor().toString() + "\" added to the queue.");
-				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.").complete();
+				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been added to the queue.\n").complete();
+				listQueue(e, queue);
 				break;
 			}
 		}
