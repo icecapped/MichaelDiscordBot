@@ -206,7 +206,7 @@ public class Command {
 	void listQueue(MessageReceivedEvent e, QueueContainer queue){
 		System.out.println("[Queue] Listing players in the current queue.");
 		
-		String out = e.getAuthor().getAsMention() + " Players currently in queue:";
+		String out = "Players currently in queue:";
 		
 		for(int i = 0; i < 5; i++){
 			if(queue.id[i] == null){
@@ -224,7 +224,10 @@ public class Command {
 	void leaveQueue(MessageReceivedEvent e, QueueContainer queue){
 		
 		for(int i = 0; i < 5; i++){
-			if(queue.id[i].equals(e.getAuthor())){
+			if(queue.id[i] == null){
+				break;
+			}
+			if(queue.user[i] == e.getAuthor()){
 				queue.removeUser(i);
 				System.out.println("[Queue] " + e.getMember().getEffectiveName() + " has been removed from the queue.");
 				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been removed from the queue.").complete();
