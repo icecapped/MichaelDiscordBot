@@ -241,7 +241,8 @@ public class Command {
 	}
 	
 	void flushQueue(MessageReceivedEvent e, QueueContainer queue){
-		if(e.getAuthor().getId() != "200612085887926272" && e.getAuthor().getId() != "224343099042693131"){ // hidden command
+		System.out.println(e.getAuthor().getId());
+		if(e.getAuthor().getId() == "200612085887926272" || e.getAuthor().getId() == "224343099042693131"){ // hidden command
 			return;
 		}
 		queue.resetContainer();

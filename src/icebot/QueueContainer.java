@@ -19,11 +19,15 @@ public class QueueContainer {
 	//METHODS
 	
 	void resetContainer(){
+		id = new String[0];
+		user = new User[0];
 		id = new String[5];
 		user = new User[5];
 	}
 
 	void resetContainer(int n){
+		id = new String[0];
+		user = new User[0];
 		id = new String[n];
 		user = new User[n];
 	}
