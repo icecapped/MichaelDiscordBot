@@ -239,4 +239,12 @@ public class Command {
 		System.out.println("[Queue] User not found in the queue, and therefore was not removed.");
 		e.getChannel().sendMessage(e.getAuthor().getAsMention() + " You can't remove what's not there.").complete();
 	}
+	
+	void flushQueue(MessageReceivedEvent e, QueueContainer queue){
+		if(e.getAuthor().getId() != "200612085887926272" && e.getAuthor().getId() != "224343099042693131"){ // hidden command
+			return;
+		}
+		queue.resetContainer();
+		System.out.println("[Queue] Queue flushed by " + e.getMember().getEffectiveName());
+	}
 }
