@@ -16,6 +16,8 @@ public class QueueContainer {
 		user = new User[i];
 	}
 	
+	//METHODS
+	
 	void resetContainer(){
 		id = new String[5];
 		user = new User[5];
@@ -24,5 +26,19 @@ public class QueueContainer {
 	void resetContainer(int n){
 		id = new String[n];
 		user = new User[n];
+	}
+	
+	void removeUser(int n){
+		id[n] = null;
+		user[n] = null;
+		
+		for(int i = 0; i < id.length - 1; i++){ // falling array
+			if(id[i] == null){
+				id[i] = id[i + 1];
+				user[i] = user[i + 1];
+				id[i + 1] = null;
+				user[i + 1] = null;
+			}
+		}
 	}
 }

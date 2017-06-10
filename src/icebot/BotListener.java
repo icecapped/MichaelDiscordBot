@@ -68,6 +68,9 @@ public class BotListener extends ListenerAdapter{
 		case "queue":
 			command.listQueue(e, queue);
 			break;
+		case "leave":
+			command.leaveQueue(e, queue);
+			break;
 		}
 	}
 	

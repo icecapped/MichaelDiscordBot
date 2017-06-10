@@ -29,8 +29,9 @@ public class Command {
 				+ "-deck [HERO] [AUTHOR] [optional DECK NAME] - Searches for a deck.\n"
 				+ "-add [HERO] [AUTHOR] [URL] [optional DECK NAME] - Adds a deck to the deck list.\n"
 				+ "-remove [HERO] [AUTHOR] [optional DECK NAME] - Removes a deck from the deck list.\n"
-				+ "-join / -j - Join the current party queue."
-				+ "-party - Mention all the people in the current party queue for a party."
+				+ "-join / -j - Join the current party queue.\n"
+				+ "-leave - Leaves the current party queue.\n"
+				+ "-party - Mention all the people in the current party queue for a party.\n"
 				+ "-queue - List of people in the queue."
 				).complete();
 	}
@@ -218,5 +219,20 @@ public class Command {
 			out += "\n" + queue.id[i];
 		}
 		e.getChannel().sendMessage(out).complete();
+	}
+	
+	void leaveQueue(MessageReceivedEvent e, QueueContainer queue){
+		
+		for(int i = 0; i < 5; i++){
+			if(queue.id[i].equals(e.getAuthor())){
+				queue.removeUser(i);
+				System.out.println("[Queue] " + e.getMember().getEffectiveName() + " has been removed from the queue.");
+				e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has been removed from the queue.").complete();
+				return;
+			}
+		}
+		//reaches here only if person not found
+		System.out.println("[Queue] User not found in the queue, and therefore was not removed.");
+		e.getChannel().sendMessage(e.getAuthor().getAsMention() + " You can't remove what's not there.").complete();
 	}
 }
