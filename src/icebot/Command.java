@@ -1,5 +1,8 @@
 package icebot;
 
+import java.util.Calendar;
+import java.util.HashMap;
+
 import net.dv8tion.jda.core.events.message.*;
 
 public class Command {
@@ -9,6 +12,7 @@ public class Command {
 	 * 1: Misellaneous Commands
 	 * 2: Deck System
 	 * 3: Queue System
+	 * 4: QueueTime System
 	 */
 	
 	
@@ -23,6 +27,7 @@ public class Command {
 				+ "-help - Displays help\n"
 				+ "-ping - Ping the bot\n"
 				+ "-pingcount - Check number of pings in the current session\n"
+				+ "-qtime [USERNAME] - Check estimated queue time\n"
 				+ "\n"
 				+ "Deck Commands:\n"
 				+ "-deck [HERO] [AUTHOR] [optional DECK NAME] - Searches for a deck.\n"
@@ -250,5 +255,21 @@ public class Command {
 		}
 		queue.resetContainer();
 		System.out.println("[Queue] Queue flushed by " + e.getMember().getEffectiveName());
+	}
+	
+	/*
+	 * QUEUETIME COMMANDS
+	 */
+	
+	void queueTimes(MessageReceivedEvent e, String[] args){
+		if(args.length > 1){
+			e.getChannel().sendMessage("Improper syntax? Check -help!").complete();
+		}
+		
+		int elo;
+		/*
+		 * get elo
+		 */
+		Calendar cal = Calendar.getInstance();
 	}
 }

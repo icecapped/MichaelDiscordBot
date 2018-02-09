@@ -4,6 +4,7 @@ import javax.security.auth.login.*;
 
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.entities.Game.GameType;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 
 public class Bot {
@@ -20,10 +21,10 @@ public class Bot {
 		try{ //initialization
 		jda = new JDABuilder(AccountType.BOT).addEventListener(new BotListener()).setToken(BOT_TOKEN).buildAsync();
 		}
-		catch(LoginException | IllegalArgumentException | RateLimitedException e){
+		catch(LoginException | IllegalArgumentException e){
 			e.printStackTrace();
 		}
-		jda.getPresence().setGame(Game.of(GAME));
+		jda.getPresence().setGame(Game.of(GameType.WATCHING, GAME));
 		System.out.println("[JDA] Game updated.");
 	}
 }

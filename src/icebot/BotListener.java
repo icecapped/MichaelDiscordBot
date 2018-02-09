@@ -12,7 +12,7 @@ public class BotListener extends ListenerAdapter{
 	@Override
 	public void onMessageReceived(MessageReceivedEvent e){
 		Command command = new Command();
-		String in = e.getMessage().getContent(); //text
+		String in = e.getMessage().getContentDisplay(); //text
 		Message m = e.getMessage(); //message object
 		
 		if(!(in.charAt(0) == '-' || in.charAt(0) == '<')){ //Checking if it's a command
@@ -73,6 +73,9 @@ public class BotListener extends ListenerAdapter{
 			break;
 		case "flush":
 			command.flushQueue(e, queue);
+			break;
+		case "qtime":
+			command.queueTimes(e, args);
 			break;
 		}
 	}
